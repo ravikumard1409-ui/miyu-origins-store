@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Miyu Origins | Gentle & Beautiful</title>
+<meta name="description" content="Discover Miyu Origins haircare and skincare products.">
+<style>
+:root {
+  --green:#234c38;
+  --deep:#142d23;
+  --cream:#f8f5ed;
+  --gold:#b89b60;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:var(--cream);color:#24372d}
+header{background:var(--deep);color:white;padding:19px 16px;position:sticky;top:0;z-index:5}
+.nav{display:flex;align-items:center;justify-content:space-between;max-width:1100px;margin:auto}
+.logo{font-family:Georgia,serif;font-size:23px;letter-spacing:4px}
+.cart-button{background:var(--gold);color:#142d23;border:0;padding:11px 15px;border-radius:25px;font-weight:bold}
+.hero{background:linear-gradient(110deg,#142d23,#476d51);color:white;text-align:center;padding:65px 18px}
+.hero h1{font-family:Georgia,serif;font-size:42px;font-weight:normal;margin:10px}
+.hero p{line-height:1.7;color:#e8e8dc}
+.hero a{display:inline-block;background:var(--gold);color:#142d23;text-decoration:none;padding:13px 25px;border-radius:25px;margin-top:15px;font-weight:bold}
+.section{max-width:1100px;margin:auto;padding:40px 17px}
+.section h2{text-align:center;font-family:Georgia,serif;font-size:30px;font-weight:normal}
+.sub{text-align:center;color:#777;margin-top:-8px}
+.products{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:28px}
+.product{background:white;border-radius:12px;overflow:hidden;box-shadow:0 3px 14px #0000000c}
+.product img{width:100%;height:175px;object-fit:cover;background:#e7eadf}
+.product-info{padding:13px}
+.product h3{font-family:Georgia,serif;font-size:18px;margin:4px 0 8px}
+.product p{font-size:12px;color:#777;min-height:30px}
+.price{font-weight:bold;color:var(--green);margin:10px 0}
+.add{width:100%;border:0;background:var(--green);color:white;padding:12px;border-radius:7px;font-weight:bold}
+.cart{background:white;padding:20px;border-radius:12px;margin-top:25px}
+.cart-row{display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid #eee;padding:12px 0;font-size:14px}
+.qty button{border:0;padding:5px 10px;background:#e8eee8;border-radius:5px}
+input,textarea,select{width:100%;padding:12px;margin:7px 0 13px;border:1px solid #d8d8d0;border-radius:7px;background:white;font-size:15px}
+label{font-size:13px;font-weight:bold}
+.checkout{background:white;padding:20px;border-radius:12px;margin-top:20px}
+.primary{background:var(--green);color:white;border:0;border-radius:7px;padding:15px;width:100%;font-weight:bold;font-size:15px}
+.note{font-size:12px;color:#777;line-height:1.6}
+footer{background:var(--deep);color:#eee;text-align:center;padding:35px 15px;line-height:1.8}
+@media(min-width:650px){
+.products{grid-template-columns:repeat(3,minmax(0,1fr))}
+.hero h1{font-size:58px}
+.product img{height:240px}
+}
+</style>
+</head>
+<body>
+<header>
+ <div class="nav">
+  <div class="logo">MIYU ORIGINS</div>
+  <button class="cart-button" onclick="document.getElementById('shopping-cart').scrollIntoView({behavior:'smooth'})">
+   CART (<span id="count">0</span>)
+  </button>
+ </div>
+</header>
+
+<section class="hero">
+ <p>THE ART OF NATURAL CARE</p>
+ <h1>Gentle & Beautiful</h1>
+ <p>Thoughtful care for your hair and skin.<br>Discover the beauty of Miyu Origins.</p>
+ <a href="#shop">EXPLORE COLLECTION</a>
+</section>
+
+<section class="section" id="shop">
+ <h2>Our Collection</h2>
+ <p class="sub">Discover your everyday beauty essentials</p>
+ <div class="products" id="products"></div>
+</section>
+
+<section class="section" id="shopping-cart">
+ <h2>Your Shopping Bag</h2>
+ <div class="cart">
+  <div id="cart-items">Your cart is empty.</div>
+  <h3 style="text-align:right">Total: ₹<span id="total">0</span></h3>
+ </div>
+
+ <div class="checkout">
+  <h2>Delivery Details</h2>
+  <form id="order-form">
+   <label>Full name</label>
+   <input id="customer" required placeholder="Your full name">
+   <label>Mobile number</label>
+   <input id="phone" required type="tel" pattern="[0-9]{10}" placeholder="10-digit mobile number">
+   <label>Delivery address</label>
+   <textarea id="address" required placeholder="House number, street, area, city"></textarea>
+   <label>PIN code</label>
+   <input id="pin" required pattern="[0-9]{6}" maxlength="6" placeholder="6-digit PIN code">
+   <label>Payment method</label>
+   <select id="payment">
+    <option value="UPI">UPI / Online payment (arrange payment)</option>
+    <option value="COD">Cash on Delivery</option>
+   </select>
+   <p class="note" id="payment-note">UPI payment instructions will be shared when your order is confirmed. Your order is not paid until payment is verified.</p>
+   <button class="primary" type="submit">PLACE ORDER ON WHATSAPP</button>
+  </form>
+  <p class="note">By placing an order, you agree to be contacted about delivery and payment confirmation.</p>
+ </div>
+</section>
+
+<footer>
+ <h2 style="font-family:Georgia,serif;letter-spacing:3px">MIYU ORIGINS</h2>
+ Gentle & Beautiful<br>
+ Premium Haircare & Skincare<br>
+ Contact us through WhatsApp
+ <p>© 2026 Miyu Origins. All rights reserved.</p>
+</footer>
+
+<script>
+// EDIT SAMPLE PRICES AND DETAILS BEFORE LAUNCH.
+const products = [
+ {id:1,name:"Miyu Origins Shampoo",desc:"Haircare essential",price:299, image:""},
+ {id:2,name:"Oily Skin Face Wash",desc:"100 ml | Daily cleansing",price:199,image:""},
+ {id:3,name:"Strawberry Hydrating Gel",desc:"Hydrating skincare",price:199,image:""},
+ {id:4,name:"Cucumber Soothing Gel",desc:"Refreshing skincare",price:199,image:""},
+ {id:5,name:"Aloe Vera Gel",desc:"Everyday skincare",price:199,image:""},
+ {id:6,name:"Carrot Glow Gel",desc:"Skincare essential",price:199,image:""},
+ {id:7,name:"Watermelon Aqua Gel",desc:"Refreshing gel",price:199,image:""},
+ {id:8,name:"Green Tea Gel",desc:"Daily skincare",price:199,image:""},
+ {id:9,name:"Bamboo Gel",desc:"Daily skincare",price:199,image:""}
+];
+
+const WHATSAPP_NUMBER="91XXXXXXXXXX";
+let cart={};
+
+function renderProducts(){
+ document.getElementById("products").innerHTML=products.map(p=>`
+ <article class="product">
+  ${p.image ? `<img src="${p.image}" alt="${p.name}">` : `<div style="height:175px;background:linear-gradient(135deg,#dce6d6,#8ba58b);display:grid;place-items:center;color:#234c38;font-family:Georgia;font-size:19px;text-align:center;padding:15px">MIYU<br>ORIGINS</div>`}
+  <div class="product-info">
+   <h3>${p.name}</h3>
+   <p>${p.desc}</p>
+   <div class="price">₹${p.price}</div>
+   <button class="add" onclick="add(${p.id})">ADD TO CART</button>
+  </div>
+ </article>`).join("");
+}
+function add(id){cart[id]=(cart[id]||0)+1;renderCart()}
+function change(id,n){cart[id]+=n;if(cart[id]<=0)delete cart[id];renderCart()}
+function renderCart(){
+ let entries=Object.entries(cart);
+ let total=0,count=0;
+ document.getElementById("cart-items").innerHTML=entries.length?entries.map(([id,q])=>{
+ let p=products.find(x=>x.id==id);total+=p.price*q;count+=q;
+ return `<div class="cart-row"><div>${p.name}<br>₹${p.price} × ${q}</div>
+ <div class="qty"><button type="button" onclick="change(${id},-1)">−</button> ${q} <button type="button" onclick="change(${id},1)">+</button></div></div>`;
+ }).join(""):"Your cart is empty.";
+ document.getElementById("total").textContent=total;
+ document.getElementById("count").textContent=count;
+}
+document.getElementById("payment").addEventListener("change",e=>{
+ document.getElementById("payment-note").textContent=e.target.value==="UPI"?
+ "UPI payment instructions will be shared when your order is confirmed. Your order is not paid until payment is verified.":
+ "Cash payment will be collected at delivery, subject to order confirmation.";
+});
+document.getElementById("order-form").addEventListener("submit",e=>{
+ e.preventDefault();
+ if(!Object.keys(cart).length){alert("Please add a product to your cart.");return}
+ if(WHATSAPP_NUMBER==="91XXXXXXXXXX"){alert("The store owner must add the official WhatsApp number in the website code before orders can be sent.");return}
+ let total=0,lines=[];
+ Object.entries(cart).forEach(([id,q])=>{
+ let p=products.find(x=>x.id==id);total+=p.price*q;
+ lines.push(`${p.name} x ${q} = Rs.${p.price*q}`);
+ });
+ let message=`MIYU ORIGINS ORDER\n\n${lines.join("\n")}\n\nTotal: Rs.${total}\n\nCustomer: ${document.getElementById("customer").value}\nMobile: ${document.getElementById("phone").value}\nAddress: ${document.getElementById("address").value}\nPIN: ${document.getElementById("pin").value}\nPayment: ${document.getElementById("payment").value}\n\nPlease confirm my order.`;
+ window.open("https://wa.me/"+WHATSAPP_NUMBER+"?text="+encodeURIComponent(message),"_blank");
+});
+renderProducts();
+renderCart();
+</script>
+</body>
+</html>
